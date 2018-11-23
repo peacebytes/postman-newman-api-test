@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "383684f6-453a-401f-826a-afb9bef30f68",
+		"name": "Switbe-Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "screen_name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "85546250-51d7-4cdd-a4e0-654d31cffede",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response includes id\", function(){",
+							"    pm.expect(pm.response.json()).to.include.key(\"id\");",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "50527fae-7964-4193-af80-e955ee89be32",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "tokenSecret",
+							"value": "{{AccessTokenSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "{{AccessToken}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "{{APISecretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerKey",
+							"value": "{{APIKeys}}",
+							"type": "string"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.twitter.com/1.1/users/show.json?screen_name={{myTwitterHandle}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twitter",
+						"com"
+					],
+					"path": [
+						"1.1",
+						"users",
+						"show.json"
+					],
+					"query": [
+						{
+							"key": "screen_name",
+							"value": "{{myTwitterHandle}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suggestions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60bcc738-4478-4db3-8db0-cfa499f31ff2",
+						"exec": [
+							"pm.test(\"Suggestions to be at least 10\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.be.at.least(10);",
+							"});",
+							"",
+							"pm.test(\"Verify return code status\", function(){",
+							"    pm.expect(pm.response).to.have.status(200);",
+							"})",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "tokenSecret",
+							"value": "{{AccessTokenSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "{{AccessToken}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "{{APISecretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerKey",
+							"value": "{{APIKeys}}",
+							"type": "string"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.twitter.com/1.1/users/suggestions.json",
+					"protocol": "https",
+					"host": [
+						"api",
+						"twitter",
+						"com"
+					],
+					"path": [
+						"1.1",
+						"users",
+						"suggestions.json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
