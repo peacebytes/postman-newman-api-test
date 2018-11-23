@@ -18,7 +18,7 @@ https://github.com/postmanlabs/newman/issues/1763
 
 # Jenkins 
 - Exporting Collection & Environment as json files and pushing them on a source control server.
-- Jenkins pull those files to its workspace and excute test as:
+- Jenkins pull those files to its workspace and execute test as:
 ```
 newman run switbe-demo.postman_collection.json -e staging.postman_environment.json -r html --reporter-html-export newman_switbe_report.html
 ```
