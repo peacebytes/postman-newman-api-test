@@ -1,5 +1,5 @@
 # postman-newman-api-test
-An example how to use Postman to verify web services.
+An example how to use Postman to verify web services with Jenkins integration.
 
 # How does it work:
 - Using Postman (stand-alone version; don't use the Chrome add-on one) to import the Collection file `switbe-demo.postman_collection.json`. Import the environment settings file too `staging.postman_environment.json`
