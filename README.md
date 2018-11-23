@@ -13,6 +13,9 @@ newman run switbe-demo.postman_collection.json -e staging.postman_environment.js
 HTML report is `newman_switbe_report.html`
 
 # Limitation
+- Require additional js libraries in postman is limitted. For example to generate `jsonwebtoken` or `amazon-cognito-identity-js`. Available supported js libs:
+https://www.getpostman.com/docs/v6/postman/scripts/postman_sandbox_api_reference
+
 - Postman share link to collection is not supported v2.* so newman 4 couldn't run directly from share link.
 https://github.com/postmanlabs/newman/issues/1763
 
