@@ -12,4 +12,4 @@ Execute shell
 newman run switbe-demo.postman_collection.json -e staging.postman_environment.json -r html --reporter-html-export newman_switbe_report.html
 ```
 Use Jenkins plugin `Publish HTML reports` to display HTML report.
-Set `Index page(s)` : `newman_switbe_report.htm`
+Set `Index page(s)` : `newman_switbe_report.html`
